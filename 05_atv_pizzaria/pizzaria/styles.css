@@ -1,0 +1,68 @@
+/* Define uma fonte agradável para todo o corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 20px;
+    color: #333;
+}
+
+/* Estilo para o título principal */
+h2 {
+    color: #d35400; /* cor laranja */
+}
+
+/* Estiliza o link de cadastrar nova pizza */
+a[href="pizza_form.php"] {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 15px;
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+a[href="pizza_form.php"]:hover {
+    background-color: #219150;
+}
+
+/* Estiliza a tabela */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+/* Estiliza as células da tabela */
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Estilo do cabeçalho da tabela */
+table th {
+    background-color: #e67e22;
+    color: white;
+    font-weight: bold;
+}
+
+/* Linhas pares da tabela com cor de fundo diferente para melhor leitura */
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo dos links dentro da coluna de opções */
+table td a {
+    margin-right: 8px;
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+table td a:hover {
+    text-decoration: underline;
+    color: #1c5980;
+}
