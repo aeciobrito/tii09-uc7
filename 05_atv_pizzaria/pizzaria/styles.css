@@ -14,7 +14,7 @@ h2 {
 }
 
 /* Link para "Cadastrar Nova Pizza" */
-a[href="pizza_form.php"] {
+a[href="Pizza_form.php"] {
     display: inline-block;
     margin-bottom: 15px;
     padding: 8px 15px;
@@ -25,7 +25,7 @@ a[href="pizza_form.php"] {
     transition: background-color 0.3s ease;
 }
 
-a[href="pizza_form.php"]:hover {
+a[href="Pizza_form.php"]:hover {
     background-color: #219150;
 }
 

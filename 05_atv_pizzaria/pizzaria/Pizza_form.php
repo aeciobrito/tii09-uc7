@@ -71,7 +71,7 @@ if(isset($_POST['id'])) {
     <h2><?= $pizza ? "Editar Pizza" : "Cadastrar Nova Pizza" ?></h2>
     <!-- Título da página (edição ou cadastro) -->
 
-    <form action="pizza_form.php" method="post">
+    <form action="Pizza_form.php" method="post">
         <!-- Formulário que envia os dados via POST para a mesma página -->
 
         <?php if ($pizza): ?>
