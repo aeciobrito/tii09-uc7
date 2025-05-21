@@ -17,7 +17,7 @@ $pizzas = $bd->getAll(); // Chama o método getAll() para recuperar todas as piz
 </head> <!-- Fim do cabeçalho -->
 
 <body> <!-- Início do corpo da página -->
-    <h2>Lista de Pizzas</h2> <!-- Título principal da página -->
+    <h2>Pizzas para Todos - Lista de Pizzas</h2> <!-- Título principal da página -->
 
     <a href="pizza_form.php">Cadastrar Nova</a> <!-- Link para adicionar uma nova pizza -->
 

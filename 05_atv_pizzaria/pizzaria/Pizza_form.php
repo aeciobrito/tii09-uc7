@@ -65,6 +65,7 @@ if(isset($_POST['id'])) {
 
     <title><?= $pizza ? "Editar Pizza" : "Cadastrar Nova Pizza" ?></title>
     <!-- Define o título da aba do navegador dinamicamente com base no contexto -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2><?= $pizza ? "Editar Pizza" : "Cadastrar Nova Pizza" ?></h2>
@@ -92,9 +93,10 @@ if(isset($_POST['id'])) {
 
         <button type="submit">Salvar</button>
         <!-- Botão para enviar o formulário -->
+        
+        <button type="submit"><a href="index.php">Cancelar</a></button>
+        <!-- Botão para enviar o formulário -->
 
-        <a href="index.php">Cancelar</a>
-        <!-- Link para cancelar e voltar para a página principal -->
-    </form>
+        </form>
 </body>
 </html>
