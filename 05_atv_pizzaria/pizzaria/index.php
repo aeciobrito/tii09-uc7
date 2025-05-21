@@ -19,7 +19,7 @@ $pizzas = $bd->getAll(); // Chama o método getAll() para recuperar todas as piz
 <body> <!-- Início do corpo da página -->
     <h2>Pizzas para Todos - Lista de Pizzas</h2> <!-- Título principal da página -->
 
-    <a href="pizza_form.php">Cadastrar Nova</a> <!-- Link para adicionar uma nova pizza -->
+    <a href="Pizza_form.php">Cadastrar Nova</a> <!-- Link para adicionar uma nova pizza -->
 
     <table border="1" cellpading="5"> <!-- Cria uma tabela com borda de 1px e espaçamento interno (obs: o correto seria "cellpadding") -->
         <tr><th>ID</th><th>SABOR</th><th>TAMANHO</th><th>PREÇO</th><th>OPÇÕES</th></tr> <!-- Cabeçalho da tabela com os nomes das colunas -->

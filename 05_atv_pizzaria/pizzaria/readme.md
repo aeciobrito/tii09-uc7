@@ -1,5 +1,7 @@
 # Cardápio de Pizzaria - Pizzas para Todos
 
+🍕[URL do cardápio hospedado: https://cardapiodepizzariapizzasparatodos.minoruyamanaka.com.br/](https://cardapiodepizzariapizzasparatodos.minoruyamanaka.com.br/)
+
 Este sistema é uma aplicação PHP para gerenciamento de uma pizzaria, permitindo cadastrar, visualizar, editar e excluir pizzas do cardápio. O projeto segue o padrão de arquitetura MVC (Model-View-Controller) de forma simplificada e utiliza PDO para conexão com o banco de dados MySQL.
 
 ## Estrutura do Projeto
