@@ -13,15 +13,16 @@ $pizzas = $bd->getAll(); // Chama o método getAll() para recuperar todas as piz
     <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna a página responsiva para dispositivos móveis -->
     <title>Lista de Pizzas</title> <!-- Define o título da aba no navegador -->
+    <link rel="stylesheet" href="styles.css">
 </head> <!-- Fim do cabeçalho -->
 
 <body> <!-- Início do corpo da página -->
-    <h2>Lista de Pizzas</h2> <!-- Título principal da página -->
+    <h2>Pizzas para Todos - Lista de Pizzas</h2> <!-- Título principal da página -->
 
-    <a href="pizza_form.php">Cadastrar Contato</a><br> <!-- Link para o formulário de cadastro de nova pizza -->
+    <a href="Pizza_form.php">Cadastrar Nova</a> <!-- Link para adicionar uma nova pizza -->
 
     <table border="1" cellpading="5"> <!-- Cria uma tabela com borda de 1px e espaçamento interno (obs: o correto seria "cellpadding") -->
-        <tr><th>ID</th><th>SABOR</th><th>TAMANHO</th><th>PREÇO</th></tr> <!-- Cabeçalho da tabela com os nomes das colunas -->
+        <tr><th>ID</th><th>SABOR</th><th>TAMANHO</th><th>PREÇO</th><th>OPÇÕES</th></tr> <!-- Cabeçalho da tabela com os nomes das colunas -->
         
         <?php foreach ($pizzas as $p): ?> <!-- Início do loop que percorre todas as pizzas retornadas do banco -->
             <tr> <!-- Início de uma nova linha na tabela -->
@@ -41,6 +42,7 @@ $pizzas = $bd->getAll(); // Chama o método getAll() para recuperar todas as piz
 
     <br> <!-- Quebra de linha -->
 
-    <a href="pizza_form.php">Cadastrar Nova</a> <!-- Link para adicionar uma nova pizza -->
+    
+
 </body> <!-- Fim do corpo da página -->
 </html> <!-- Fim do documento HTML -->
