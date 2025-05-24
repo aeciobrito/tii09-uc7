@@ -20,7 +20,8 @@ $db = Database::getInstance();
 // Executa uma consulta SQL diretamente na instância retornada por getInstance()
 // A função query("select * from produtos") executa um SELECT que retorna todos os registros da tabela 'produtos'
 // O resultado da consulta é impresso usando print_r(), útil para depuração.
-print_r(Database::getInstance()->query("select * from produtos"));
+
+// print_r(Database::getInstance()->query("select * from produtos"));
 
 ?>
 

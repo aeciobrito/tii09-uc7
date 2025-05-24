@@ -3,7 +3,6 @@
 require_once 'Produto.php';
 require_once 'Database.php';
 
-
 class ProdutoDAO
 {
     private $db;
@@ -76,7 +75,7 @@ class ProdutoDAO
         $this->db->query($sql);
     }
 
-    public function update(Produto $produto): void 
+    public function update(Produto $produto): void
     {
         $sql = "UPDATE produtos SET nome = :nome, preco = :preco, ativo = :ativo, dataDeCadastro = :cadastro, dataDeValidade = :validade WHERE id = :id";
         $stmt = $this->db->prepare($sql);
@@ -89,28 +88,34 @@ class ProdutoDAO
             ':cadastro' => $produto->getDataDeCadastro(),            
             ':validade' => $produto->getDataDeValidade()
         ]);
+    }    
+
+    public function delete(int $id): void
+    {
+        $stmt = $this->db->prepare("DELETE FROM produtos WHERE id = :id");
+        $stmt->execute([':id' => $id]);
     }
-
-    public function delete(int $id): void {}
-
-
-    
 }
-$dao = new ProdutoDAO();
-$produto = $dao->getById(1);
-$produto->setNome('Fabricio');
-$produto->setPreco(10000);
 
-$dao->update($produto);
+// $dao = new ProdutoDAO();
+// $produto = $dao->getById(1);
+// $produto->setNome('Fabricio');
+// $produto->setPreco(10000);
+// $dao->update($produto);
+
+// $dao = new ProdutoDAO();
+// $produto = $dao->getById(1);
+// $produto->setNome('Fabricio');
+// $produto->setPreco(10000);
+// $dao->update($produto);
 
 
 // $dao = new ProdutoDAO();
 // $produto = new Produto(null, 'Batata', 5.90, 1,'2025-10-10', '2025-10-10');
 // ($dao->create($produto));
 
-/*
 // SQL INJECTION:
-$dao = new ProdutoDAO();
-$produto = new Produto(null, "'Teste2', 0, 0, '2025-10-10', '2025-12-12'); DROP TABLE produtos --", 9.99, 1, '2025-01-01', '2025-12-12');
+// $dao = new ProdutoDAO();
+// $produto = new Produto(null, "'Teste2', 0, 0, '2025-10-10', '2025-12-12'); DROP TABLE produtos --", 9.99, 1, '2025-01-01', '2025-12-12');
 
-$dao->createInseguro($produto);
+// $dao->createInseguro($produto);
