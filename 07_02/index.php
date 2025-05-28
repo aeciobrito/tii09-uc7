@@ -36,5 +36,28 @@ $produtos = $dao->getAll();
         </tr>
         <?php endforeach; ?>
     </table>
+
+    <h2>Lista de Clientes</h2>
+
+    <a href="./frontend/cliente_form.php">Cadastrar Novo Cliente</a>
+
+    <table border="1" cellpading="4">
+        <tr>
+            <td>Nome</td>
+            <td>CPF</td>
+            <td>Ações</td>
+        </tr>
+        <!-- <?php foreach($clientes as $cli): ?> -->
+        <tr>
+            <td><?= $cli->getNome() ?></td>
+            <td><?= $cli->getCpf() ?></td>
+            <td>
+                <a href="#">Detalhes</a>
+                <a href="#">Editar</a>
+                <a href="#">Excluir</a>
+            </td>
+        </tr>
+        <!-- <?php endforeach; ?> -->
+    </table>
 </body>
 </html>
