@@ -14,7 +14,7 @@ Class ClienteDAO
     
     public function getAll(): array
     {
-        $resultadoDoBanco = $this->db->query('SELECT * FROM produtos');
+        $resultadoDoBanco = $this->db->query('SELECT * FROM clientes');
         $clientes = [];
 
         while($row = $resultadoDoBanco->fetch(PDO:: FETCH_ASSOC)) {
@@ -58,9 +58,11 @@ Class ClienteDAO
         ]);
     }
 
+
+
     public function update(Cliente $cliente): void 
     {
-        $sql = 'UPDATE clientes SET nome = :nome, cpf = :cpf, ativo = :ativo, DataDeNascimento = :nascimento WHERE is = id:';
+        $sql = 'UPDATE clientes SET nome = :nome, cpf = :cpf, ativo = :ativo, dataDeNascimento = :nascimento WHERE id = :id';
         $stmt = $this->db->prepare($sql);
 
         $stmt->execute([
@@ -79,8 +81,17 @@ Class ClienteDAO
     }
 
 }
+// USE venda;
+// SELECT * FROM clientes;
 
-$dao = new ClienteDAO();
+// $dao = new ClienteDAO();
 
-$cliente02 = new Cliente(null, 'Teste01', '12345678998', 1,'2025-10-10' );
-($dao->create($cliente0));
+// $cliente02 = new Cliente(null, 'Teste01', '12345678998', 1,'2025-10-10' );
+// ($dao->create($cliente02));
+
+// // Exibindo os valores dos atributos usando os getters
+// echo "Nome: " . $cliente02->getNome() . "<br>";
+// echo "CPF: " . $cliente02->getCpf() . "<br>";
+// echo "Ativo: " . ($cliente02->getAtivo() ? "Sim" : "Não") . "<br>";
+// echo "Data de Nascimento: " . $cliente02->getDataDeNascimento() . "<br>";
+

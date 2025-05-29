@@ -48,16 +48,16 @@ class Cliente
 }
 
 // Criando um novo Cliente 
-$cliente01 = new Cliente(
-    99,
-    'Cliente99',
-    '12345678987',
-    true,
-    '2025-05-27'
-);
+// $cliente01 = new Cliente(
+//     99,
+//     'Cliente99',
+//     '12345678987',
+//     true,
+//     '2025-05-27'
+// );
 
-// Exibindo os valores dos atributos usando os getters
-echo "Nome: " . $cliente01->getNome() . "<br>";
-echo "CPF: " . $cliente01->getCpf() . "<br>";
-echo "Ativo: " . ($cliente01->getAtivo() ? "Sim" : "Não") . "<br>";
-echo "Data de Nascimento: " . $cliente01->getDataDeNascimento() . "<br>";
+// // Exibindo os valores dos atributos usando os getters
+// echo "Nome: " . $cliente01->getNome() . "<br>";
+// echo "CPF: " . $cliente01->getCpf() . "<br>";
+// echo "Ativo: " . ($cliente01->getAtivo() ? "Sim" : "Não") . "<br>";
+// echo "Data de Nascimento: " . $cliente01->getDataDeNascimento() . "<br>";
