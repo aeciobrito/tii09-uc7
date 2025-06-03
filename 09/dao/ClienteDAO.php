@@ -65,11 +65,14 @@ class ClienteDAO
     }   
 
     public function delete(int $id): bool
-    {
-        $stmt = $this->db->prepare("DELETE FROM clientes WHERE id = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        return $stmt->execute();
-    }
+{
+    $stmt = $this->db->prepare("DELETE FROM clientes WHERE id = :id");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    
+    return $stmt->rowCount() > 0; // Retorna true somente se uma linha foi excluída
+}
+
 }
 // <!-- ORM (Object-Relational Mapping) -->
 
