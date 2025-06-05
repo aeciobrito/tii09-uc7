@@ -14,7 +14,7 @@ class ProdutoDAO
     public function getAll(): array
     {
         $stmt = $this->db->query("SELECT * FROM produtos");
-        
+        // $produtosData = $stmt -> fetchAll();
         $produtos = [];
         
         return $produtos;
