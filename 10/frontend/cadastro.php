@@ -1,4 +1,5 @@
 <?php
+session_status();
 require_once '../UsuarioDAO.php';
 require_once '../Usuario.php';
 
@@ -29,6 +30,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             $usuario =  new Usuario(null, $nome, $senhaHash, $email, $token);
             if($dao->create($usuario))
             {
+                $_SESSION['token']=$token;
                 header('Location: index.php');
                 exit;
             }

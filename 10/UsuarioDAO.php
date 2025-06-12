@@ -37,6 +37,16 @@ class UsuarioDAO
         return ($data) ?
          new Usuario($data['id'], $data['nome'], $data['senha'], $data['email'], $data['token']) : null;
     }
+
+    public function updateToken(int $id, ?string $token): bool
+    {
+        $sql = "UPDATE usuario SET token = :token Where id = :id";
+        $stmt = $this->db->prepare($sql);
+        return $stmt ->execute ([
+            ':token' => $token,
+            ':id' => $id
+        ]);
+    }
         
 }
 
