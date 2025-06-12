@@ -38,16 +38,26 @@ class UsuarioDAO
          new Usuario($data['id'], $data['nome'], $data['senha'], $data['email'], $data['token']) : null;
     }
 
+    public function getByToken(string $token) : ?Usuario
+    {
+        $stmt = $this->db->prepare("SELECT * FROM usuario WHERE token = :token");
+        $stmt->execute([':token' => $token]);
+        $data = $stmt->fetch();
+
+        return $data ?
+            new Usuario($data['id'], $data['nome'], $data['senha'], $data['email'], $data['token'])
+            : null;
+    }
+        
     public function updateToken(int $id, ?string $token): bool
     {
-        $sql = "UPDATE usuario SET token = :token Where id = :id";
+        $sql = "UPDATE usuario SET token = :token WHERE id = :id";
         $stmt = $this->db->prepare($sql);
-        return $stmt ->execute ([
+        return $stmt->execute([
             ':token' => $token,
             ':id' => $id
         ]);
     }
-        
 }
 
 // $dao = new UsuarioDAO();
