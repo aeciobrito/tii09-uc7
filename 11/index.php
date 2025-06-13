@@ -1,3 +1,4 @@
+<!-- ← Home pública -->
 <?php
 session_start();
 
@@ -18,7 +19,3 @@ $isLogged = isset($_SESSION['token']);
 </nav>
 <p>Bem-vindo ao sistema!</p>
 
-<!-- se sessão estiver ativa, exibe link para página protegida -->
-<?php if($isLogged): ?>
-    <a href="protegida.php">Página Protegida</a>
-<?php endif; ?>
