@@ -13,4 +13,4 @@ if(isset($_GET['id'])) {
     }
 }
 
-header("Location: ../frontend/index.php");
+header("Location: ../index.php");

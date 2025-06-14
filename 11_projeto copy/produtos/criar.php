@@ -47,7 +47,7 @@ if ($_POST) {
 <body>
     <h2><?= $produto ? 'Editar Produto' : 'Cadastrar Produto' ?></h2>
 
-    <form action="produto_form.php" method="post">
+    <form action="criar.php" method="post">
         <?php if ($produto): ?>
             <input hidden name="id" required value="<?= $produto->getId() ?>">
         <?php endif; ?>

@@ -1,3 +1,5 @@
+<!-- produto_details.php -->
+ 
 <?php
 require_once '../dao/ProdutoDAO.php';
 $dao = new ProdutoDAO();
@@ -38,7 +40,7 @@ if(!$produto) {
         <li><strong>Data de Validade: </strong><?= $produto->getDataDeValidade() ?></li>
     </ul>
 
-    <a href="../frontend/index.php">Voltar</a>
+    <a href="../index.php">Voltar</a>
     
 </body>
 

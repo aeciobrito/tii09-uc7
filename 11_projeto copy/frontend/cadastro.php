@@ -44,36 +44,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
 ?>
 
+<h1>Cadastro</h1>
+<?php if(isset($erro)) echo $erro; ?>
+<form method="POST">
+    Nome: <input type="text" name="nome" required><br><br>
+    Email: <input type="email" name="email" required><br><br>
+    Senha: <input type="password" name="senha" required><br><br>
+    Confirmar Senha: <input type="password" name="confirmSenha" required><br><br>
 
+    <button type="submit">Cadastrar</button>
+
+</form>
+<a href="index.php">Voltar</a></br></br>
+
+<a href="#">Já tem conta?</a>
 
 <!-- // SELECT * FROM usuarios.usuario -->
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista De Produtos</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-    <h1>Cadastro</h1>
-
-    <?php if(isset($erro)) echo $erro; ?>
-    <form method="POST">
-        Nome: <input type="text" name="nome" required><br><br>
-        Email: <input type="email" name="email" required><br><br>
-        Senha: <input type="password" name="senha" required><br><br>
-        Confirmar Senha: <input type="password" name="confirmSenha" required><br><br>
-
-        <button type="submit">Cadastrar</button><br><br>
-
-    </form>
-
-    <a href="#">Já tem conta?</a><br><br>
-
-
-    <a href="index.php">Voltar</a></br></br>
-
-</body>
-</html>

@@ -27,7 +27,7 @@ if ($_POST) {
         $dao->create($produto);
     }
 
-    header("Location: ../frontend/index.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -71,7 +71,7 @@ if ($_POST) {
         <button type="submit">Salvar</button>
     </form>
 
-    <a href="../frontend/index.php">Cancelar</a>
+    <a href="../index.php">Cancelar</a>
 </body>
 
 </html>

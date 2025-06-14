@@ -32,27 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 ?>
 
+<h1>Login</h1>
+<?php if (isset($erro)) echo "<p style='color:red'>$erro</p>"; ?>
+<form method="POST">
+    Email: <input type="email" name="email" required><br>
+    Senha: <input type="password" name="senha" required><br>
+    <button type="submit">Entrar</button>
+</form>
 
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista De Produtos</title>
-    <link rel="stylesheet" href="c">
-</head>
-<body>
-    <h1>Login</h1>
-
-    <?php if (isset($erro)) echo "<p style='color:red'>$erro</p>"; ?>
-    <form method="POST">
-        Email: <input type="email" name="email" required><br>
-        Senha: <input type="password" name="senha" required><br>
-        <button type="submit">Entrar</button>
-    </form>
-
-    <a href="index.php">Voltar</a></br></br>
-
-</body>
-</html>
+<a href="index.php">Voltar</a></br></br>

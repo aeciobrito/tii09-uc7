@@ -5,7 +5,7 @@ require_once '../dao/ProdutoDAO.php';
 $dao = new ProdutoDAO();
 
 if(!isset($_GET['id'])) {
-    header("Location: ../index.php");
+    header("Location: ../frontend/index.php");
     exit;
 }
 
@@ -13,7 +13,7 @@ $produto = $dao->getById($_GET['id']);
 
 if(!$produto) {
     echo "Produto não encontrado.";
-    echo "<a href='../index.php'>Voltar</a>";
+    echo "<a href='../frontend/index.php'>Voltar</a>";
     exit;
 }
 
@@ -40,7 +40,7 @@ if(!$produto) {
         <li><strong>Data de Validade: </strong><?= $produto->getDataDeValidade() ?></li>
     </ul>
 
-    <a href="../index.php">Voltar</a>
+    <a href="../frontend/index.php">Voltar</a>
     
 </body>
 
