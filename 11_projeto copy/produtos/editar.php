@@ -27,7 +27,7 @@ if ($_POST) {
         $dao->create($produto);
     }
 
-    header("Location: ../index.php");
+    header("Location: ../frontend/index.php");
     exit;
 }
 
@@ -41,7 +41,7 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <title>Formulario de Produto</title> -->
     <title><?= $produto ? 'Edição de Produto' : 'Cadastro de Produto' ?></title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
@@ -71,7 +71,7 @@ if ($_POST) {
         <button type="submit">Salvar</button>
     </form>
 
-    <a href="../index.php">Cancelar</a>
+    <a href="../frontend/index.php">Cancelar</a>
 </body>
 
 </html>
