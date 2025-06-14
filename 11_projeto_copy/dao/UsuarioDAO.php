@@ -1,9 +1,6 @@
 <?php
-// Correção dos caminhos: Adicionado uma barra '/' após __DIR__ .
-// Removida a inclusão desnecessária de 'UsuarioDAO.php'
-require_once __DIR__ . '/../core/Database.php';
-require_once __DIR__ . '/../model/Usuario.php';
-
+require_once '../core/Database.php';
+require_once '../model/Usuario.php';
 
 class UsuarioDAO
 {

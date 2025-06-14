@@ -1,3 +1,5 @@
+# Página Cadastro de usuários
+
 ```
 /projeto/
 ├── index.php                   ← Home pública
@@ -23,3 +25,4 @@
 └── dao/
     ├── UsuarioDAO.php
     └── ProdutoDAO.php
+```

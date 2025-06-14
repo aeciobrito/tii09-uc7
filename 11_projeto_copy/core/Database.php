@@ -1,4 +1,3 @@
-<!-- ← Singleton PDO -->
 <?php
 
 class Database

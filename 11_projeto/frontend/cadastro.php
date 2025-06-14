@@ -1,8 +1,7 @@
-<!-- ← Cadastro de usuário -->
 <?php
 session_status();
-require_once '../UsuarioDAO.php';
-require_once '../Usuario.php';
+require_once '../dao/UsuarioDAO.php';
+require_once '../model/Usuario.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')
 {

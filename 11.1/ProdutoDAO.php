@@ -97,11 +97,11 @@ class ProdutoDAO
     }
 }
 
-$dao = new ProdutoDAO();
-$produto = $dao->getById(1);
-$produto->setNome('Fabricio');
-$produto->setPreco(10000);
-$dao->update($produto);
+// $dao = new ProdutoDAO();
+// $produto = $dao->getById(1);
+// $produto->setNome('Fabricio');
+// $produto->setPreco(10000);
+// $dao->update($produto);
 
 // $dao = new ProdutoDAO();
 // $produto = $dao->getById(1);

@@ -1,7 +1,7 @@
 <?php
-require_once '../core/Database.php';
-require_once '../model/Produto.php';
 
+require_once '../model/Produto.php';
+require_once '../core/Database.php';
 
 class ProdutoDAO
 {

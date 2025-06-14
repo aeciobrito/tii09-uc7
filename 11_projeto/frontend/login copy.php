@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'dao/UsuarioDAO.php';
+require_once '../dao/UsuarioDAO.php';
 
 if(isset($_SESSION['token']))
 {
@@ -40,5 +40,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     <button type="submit">Entrar</button>
 </form>
 
-<!-- ← Login de usuário -->
-<!-- http://localhost/minoru/tii09-uc7/11/login.php -->
+<!-- 
+ <?php
+$senha_digitada = 'SUA_SENHA_AQUI'; // Substitua pela senha que você está digitando no formulário
+$hash_do_banco = 'SEU_HASH_DO_BANCO_AQUI'; // Cole o hash que você copiou da tabela 'usuario'
+
+if (password_verify($senha_digitada, $hash_do_banco)) {
+    echo "A senha digitada corresponde ao hash. ✅";
+} else {
+    echo "A senha digitada NÃO corresponde ao hash. ❌";
+    echo "<br>Hash do banco: " . $hash_do_banco;
+    echo "<br>Senha digitada (texto puro): " . $senha_digitada;
+}
+?>
+-->

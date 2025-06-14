@@ -1,8 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '../dao/UsuarioDAO.php';
-
-// require_once '../dao/UsuarioDAO.php';
+require_once '../dao/UsuarioDAO.php';
 
 if(!isset($_SESSION['token']))
 {

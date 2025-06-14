@@ -1,1 +1,0 @@
-<!-- ← Público (GET ALL) -->
