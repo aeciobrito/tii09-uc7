@@ -50,6 +50,20 @@ $isLogged = isset($_SESSION['token']);
                                 <th>Nome</th>
                                 <th>Preço</th>
                                 <th>Ações</th>
+
+                                <th>Nome</th>
+                                <th>CPF/CNPJ</th>
+                                <th>Telefone</th>
+                                <th>CEP</th>
+                                <th>Endereço</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>Telefone</th>
+                                <th>Assunto</th>
+                                <th>Mensagem</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
@@ -70,7 +84,53 @@ $isLogged = isset($_SESSION['token']);
             </div>
         <?php endif; ?>
 
-
+        <table>
+            <tr>
+                <th>Nome:</th>
+                <td>Digite o nome completo</td>
+            </tr>
+            <tr>
+                <th>E-mail:</th>
+                <td>seuemail@exemplo.com</td>
+            </tr>
+            <tr>
+                <th>CPF/CNPJ:</th>
+                <td>Somente números</td>
+            </tr>
+            <tr>
+                <th>CEP:</th>
+                <td>Somente números</td>
+            </tr>
+            <tr>
+                <th>Endereço:</th>
+                <td>Rua Exemplo, 123</td>
+            </tr>
+            <tr>
+                <th>Bairro:</th>
+                <td>Centro</td>
+            </tr>
+            <tr>
+                <th>Cidade:</th>
+                <td>São Paulo</td>
+            </tr>
+            <tr>
+                <th>Estado:</th>
+                <td>SP</td>
+            </tr>
+            <tr>
+                <th>Telefone:</th>
+                <td>(11) 99999-9999</td>
+            </tr>
+            <tr>
+                <th>Assunto:</th>
+                <td>Solicitação de Atendimento</td>
+            </tr>
+            <tr>
+                <th>Mensagem:</th>
+                <td>Colo que th</td>
+            </tr>
+        </table>
+                        
     </main>
 
 </body>
