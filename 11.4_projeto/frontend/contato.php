@@ -37,46 +37,10 @@ $isLogged = isset($_SESSION['token']);
 
         <?php if ($isLogged): ?>
             <div class="secao-protegida">
-                <a href="protegida.php" class="botao">Página Protegida</a>
-
-                <section class="lista-produtos">
-                    <h2>Lista de Produtos</h2>
-
-                    <a href="../produtos/criar.php" class="botao botao-cadastrar">Cadastrar Novo Produto</a>
-
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Preço</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach($produtos as $prd): ?>
-                                <tr>
-                                    <td><?= $prd->getNome() ?></td>
-                                    <td><?= $prd->getPreco() ?></td>
-                                    <td>
-                                        <a href="../produtos/ver.php?id=<?= $prd->getId() ?>" class="botao-acao ver">Detalhes</a>
-                                        <a href="../produtos/criar.php?id=<?= $prd->getId() ?>" class="botao-acao editar">Editar</a>
-                                        <a href="../produtos/excluir.php?id=<?= $prd->getId() ?>" class="botao-acao excluir">Excluir</a>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </section>
-            </div>
-        <?php endif; ?>
-
-
-        <?php if (!$isLogged): ?>
-            <div class="secao-protegida">
                 <!-- <a href="protegida.php" class="botao">Página Protegida</a> -->
 
                 <section class="lista-produtos">
-                    <h2>Lista de Produtos</h2>
+                    <h2>Lista de Contatos</h2>
 
                     <!-- <a href="../produtos/criar.php" class="botao botao-cadastrar">Cadastrar Novo Produto</a> -->
 
@@ -95,8 +59,8 @@ $isLogged = isset($_SESSION['token']);
                                     <td><?= $prd->getPreco() ?></td>
                                     <td>
                                         <a href="../produtos/ver.php?id=<?= $prd->getId() ?>" class="botao-acao ver">Detalhes</a>
-                                        <!-- <a href="../produtos/criar.php?id=<?= $prd->getId() ?>" class="botao-acao editar">Editar</a> -->
-                                        <!-- <a href="../produtos/excluir.php?id=<?= $prd->getId() ?>" class="botao-acao excluir">Excluir</a> -->
+                                        <a href="../produtos/criar.php?id=<?= $prd->getId() ?>" class="botao-acao editar">Editar</a>
+                                        <a href="../produtos/excluir.php?id=<?= $prd->getId() ?>" class="botao-acao excluir">Excluir</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

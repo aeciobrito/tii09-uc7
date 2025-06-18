@@ -38,8 +38,11 @@ class Produto
     public function getPreco(): float { return $this->preco; }// Retorna o preço do produto
     public function getAtivo(): bool { return $this->ativo; }// Retorna se o produto está ativo (true = ativo, false = inativo)
     public function getDataDeCadastro(): string { return $this->dataDeCadastro; }// Retorna a data de cadastro do produto
-    public function getDataDeValidade(): string { return $this->dataDeValidade; }// Retorna a data de validade do produto (pode ser null)
-
+    //public function getDataDeValidade(): string { return $this->dataDeValidade; }// Retorna a data de validade do produto (pode ser null)
+    public function getDataDeValidade(): string {
+        return $this->dataDeValidade ?? 'Data não informada';
+    }
+    
     // Setters - Garantindo que você possa atualizar os atributos de forma segura
     public function setNome(string $nome): void { $this->nome = $nome; } // Define o nome do produto
     public function setPreco(float $preco): void { $this->preco = $preco; } // Define o preço do produto
