@@ -9,7 +9,7 @@ $produtos = $dao->getAll();
 
 <?php foreach($produtos as $p): ?>
     <p>
-        <a href="./ver.php?id=<?= $p->getId() ?>"><?= $p->getNome() ?> - R$ <?= $p->getPreco() ?></a>
+        <a href="./ver.php?id=<?= $p->getId() ?>"><?= $p->getNome() ?> - R$ <?= $p->getPreco() ?><a href="./editar.php?id=<?= (int)$p->getId() ?>">EDT</a>
     </p>
 <?php endforeach ?>
 
