@@ -8,7 +8,7 @@ $user = getLoggedUser();
     <a href="./produtos/listar.php">Produtos</a> |
     <?php if ($user): ?>
         <a href="./produtos/criar.php">Novo Produto</a> |
-        <a href="./logout.php">Sair (<?= htmlspecialchars($user->getNomeUsuario()) ?>)</a>
+        <a href="./logout.php">Sair (<?= htmlspecialchars($user->getnome()) ?>)</a>
     <?php else: ?>
         <a href="./login.php">Login</a> |
         <a href="./cadastro.php">Cadastro</a>

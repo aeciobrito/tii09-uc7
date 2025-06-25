@@ -19,7 +19,7 @@ class UsuarioDAO
         $data = $stmt->fetch();
 
         if ($data) {
-            return new Usuario($data['id'], $data['nomeUsuario'], $data['senha'], $data['email'], $data['token']);
+            return new Usuario($data['id'], $data['nome'], $data['senha'], $data['email'], $data['token']);
         }
         return null;
     }
@@ -31,7 +31,7 @@ class UsuarioDAO
         $data = $stmt->fetch();
 
         if ($data) {
-            return new Usuario($data['id'], $data['nomeUsuario'], $data['senha'], $data['email'], $data['token']);
+            return new Usuario($data['id'], $data['nome'], $data['senha'], $data['email'], $data['token']);
         }
         return null;
     }
@@ -43,17 +43,17 @@ class UsuarioDAO
         $data = $stmt->fetch();
 
         if ($data) {
-            return new Usuario($data['id'], $data['nomeUsuario'], $data['senha'], $data['email'], $data['token']);
+            return new Usuario($data['id'], $data['nome'], $data['senha'], $data['email'], $data['token']);
         }
         return null;
     }
 
     public function create(Usuario $usuario): bool
     {
-        $sql = "INSERT INTO usuario (nomeUsuario, senha, email, token) VALUES (:nome, :senha, :email, :token)";
+        $sql = "INSERT INTO usuario (nome, senha, email, token) VALUES (:nome, :senha, :email, :token)";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([
-            ':nome' => $usuario->getNomeUsuario(),
+            ':nome' => $usuario->getnome(),
             ':senha' => $usuario->getSenha(),
             ':email' => $usuario->getEmail(),
             ':token' => $usuario->getToken()

@@ -3,22 +3,22 @@
 class Usuario implements JsonSerializable
 {
     private ?int $id;
-    private string $nomeUsuario;
+    private string $nome;
     private string $senha;
     private string $email;
     private ?string $token;
 
-    public function __construct(?int $id, string $nomeUsuario, string $senha, string $email, ?string $token = null)
+    public function __construct(?int $id, string $nome, string $senha, string $email, ?string $token = null)
     {
         $this->id = $id;
-        $this->nomeUsuario = $nomeUsuario;
+        $this->nome = $nome;
         $this->senha = $senha;
         $this->email = $email;
         $this->token = $token;
     }
 
     public function getId(): ?int { return $this->id; }
-    public function getNomeUsuario(): string { return $this->nomeUsuario; }
+    public function getnome(): string { return $this->nome; }
     public function getSenha(): string { return $this->senha; }
     public function getEmail(): string { return $this->email; }
     public function getToken(): ?string { return $this->token; }
@@ -29,7 +29,7 @@ class Usuario implements JsonSerializable
     {
         return [
             'id' => $this->id,
-            'nomeUsuario' => $this->nomeUsuario,
+            'nome' => $this->nome,
             'email' => $this->email,
             'token' => $this->token
         ];
