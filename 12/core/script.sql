@@ -17,3 +17,16 @@ CREATE TABLE IF NOT EXISTS usuario (
     email VARCHAR(100) UNIQUE NOT NULL,
     token VARCHAR(255) DEFAULT NULL
 );
+
+CREATE TABLE IF NOT EXISTS fornecedores (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    cnpj VARCHAR(20) UNIQUE,
+    contato VARCHAR(100)
+);
+
+ALTER TABLE produtos
+ADD COLUMN fornecedor_id INT NULL,
+ADD CONSTRAINT fk_produto_fornecedor 
+	FOREIGN KEY (fornecedor_id) 
+	REFERENCES fornecedores(id) ON DELETE SET NULL;
