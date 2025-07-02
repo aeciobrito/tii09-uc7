@@ -15,5 +15,5 @@ echo "Idade: " . $idade . " anos <br>";
 echo "Esse é um texto em aspas duplas <br>";
 echo 'Esse é um texto em aspas simples <br>';
 
-echo "Nome: $nome <br>"; // Interpolação de variável
-echo 'Idade: $idade anos <br>'; // não faz interpolação
+echo "Nome: $nome <br>";
+echo 'Idade: $idade anos <br>';

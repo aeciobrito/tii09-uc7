@@ -18,6 +18,7 @@ $isLogged = isset($_SESSION['token']);
 </nav>
 <p>Bem-vindo ao sistema!</p>
 
-<?php if(isset($_SESSION['token'])): ?>
+<!-- se sessão estiver ativa, exibe link para página protegida -->
+<?php if($isLogged): ?>
     <a href="protegida.php">Página Protegida</a>
 <?php endif; ?>

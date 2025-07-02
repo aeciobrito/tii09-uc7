@@ -47,7 +47,7 @@ class ProdutoDAO
                 (bool)$data['ativo'],
                 $data['dataDeCadastro'],
                 $data['dataDeValidade'], // Pode ser null 
-                $fornecedor
+                $fornecedor['fornecedor_id']
             );
         }
         return $produtos;
@@ -104,7 +104,8 @@ class ProdutoDAO
             ':preco' => $produto->getPreco(),
             ':ativo' => $produto->getAtivo() ? 1 : 0,
             ':dataDeCadastro' => $produto->getDataDeCadastro(),
-            ':dataDeValidade' => $produto->getDataDeValidade() // Pode ser null
+            ':dataDeValidade' => $produto->getDataDeValidade(), // Pode ser null
+            ':fornecedor_id' => $produto->getFornecedor()?->getId()
         ]);
     }
 
@@ -112,12 +113,9 @@ class ProdutoDAO
     {
         $sql = "UPDATE produtos 
                 SET nome = :nome, preco = :preco, ativo = :ativo, 
-                    dataDeCadastro = :dataDeCadastro, dataDeValidade = :dataDeValidade, 
-                    fornecedor_id = :fornecedor_id
+                    dataDeCadastro = :dataDeCadastro, dataDeValidade = :dataDeValidade 
                 WHERE id = :id";
         $stmt = $this->db->prepare($sql);
-
-        $fornecedorId = $produto->getFornecedor() ? $produto->getFornecedor()->getId() : null;
 
         return $stmt->execute([
             ':id' => $produto->getId(),
@@ -125,8 +123,7 @@ class ProdutoDAO
             ':preco' => $produto->getPreco(),
             ':ativo' => $produto->getAtivo() ? 1 : 0,
             ':dataDeCadastro' => $produto->getDataDeCadastro(),
-            ':dataDeValidade' => $produto->getDataDeValidade(),
-            ':fornecedor_id' => $fornecedorId
+            ':dataDeValidade' => $produto->getDataDeValidade()
         ]);
     }
 

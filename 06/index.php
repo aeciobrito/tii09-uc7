@@ -1,10 +1,16 @@
 <?php
-
-require_once 'ContatoDAO.php';
+// echo "<h1>Olá Idex!</h1>";
+require_once'ContatoDAO.php';
 $dao = new ContatoDAO();
 $contatos = $dao->getAll();
 
+// Se quiser exibir os contatos na página
+// foreach ($contatos as $contato) {
+//     echo "<p>ID: {$contato['id']} - Nome: {$contato['nome']}</p>";
+// }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,22 +22,22 @@ $contatos = $dao->getAll();
 <body>
     <h2>Lista de Contatos</h2>
 
-    <a href="contato_form.php">Cadastrar Contato</a><br>
-    
+    <a href="contato_form.php">Cadastrar Contato</a>
+    <br>
     <table border="1" cellpadding="5">
         <tr>
+            <th>ID</th>
             <th>Nome</th>
-            <th>Telefone</th>
             <th>Ações</th>
         </tr>
         <?php foreach ($contatos as $c): ?>
             <tr>
+                <td><?= $c->getId() ?></td>
                 <td><?= $c->getNome() ?></td>
-                <td><?= $c->getTelefone() ?></td>
                 <td>
-                    <a href="contato_details.php?id=<?= $c->getId() ?>">Detalhes</a>
-                    <a href="contato_form.php?id=<?= $c->getId() ?>">Editar</a>
-                    <a href="contato_delete.php?id=<?= $c->getId() ?>">Excluir</a>
+                    <a href="#">Detalhes</a>
+                    <a href="#">Editar</a>
+                    <a href="#">Excluir</a>
                 </td>
             </tr>
         <?php endforeach; ?>

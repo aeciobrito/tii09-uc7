@@ -6,3 +6,5 @@ $quantidade = $_GET['quantidade'];
 $total = $preco * $quantidade;
 
 echo "Total: R$ " . $total;
+
+?>

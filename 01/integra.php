@@ -7,8 +7,17 @@
 </head>
 <body>
     <h1>Bem-vindo!</h1>
+    <p>Hoje é: 29/04/2025</p>
+
     <p>Hoje é: 
-        <?php echo date('d/m/Y') ?>
+        <?php echo date("d/m/y") ."<br>"?>
+        
+        <?php echo date("d/m/y h:i:s") ."<br>"?>
+        <?php echo date("d/m/y H:i:s") ."<br>"?>
+
+
     </p>
+
+
 </body>
 </html>

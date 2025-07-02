@@ -1,4 +1,6 @@
+
 <?php
+
 /*
 Nome
 Email
@@ -7,6 +9,12 @@ Telefone
 
 $nome = $_GET['nome'];
 $email = $_GET['email'];
-$fone = $_GET['telefone'];
+$telefone = $_GET['telefone'];
 
-echo "Nome: $nome, Email: $email, Telefone: $fone";
+// $total = $preco * $quantidade;
+
+echo "nome: R$ " . $nome . "<br>";
+echo "email: R$ " . $email . "<br>";
+echo "telefone: R$ " . $telefone . "<br>";
+
+?>
