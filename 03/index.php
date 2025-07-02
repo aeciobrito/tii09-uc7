@@ -16,11 +16,10 @@ while ($contador < 5) {
 // array
 $nomes = ["Adenilsa", "Carlos", "Gustavo", "Gabriel"];
 
-/*
-for($i = 0; $i < count($nomes); $i++) {
-    echo "Olá,  $nomes[$i] ! <br>";
-}
-*/
+// for($i = 0; $i < count($nomes); $i++) {
+//     echo "Olá,  $nomes[$i] ! <br>";
+// }
+
 foreach($nomes as $n) {
     echo "Olá, $n! <br>";
 }

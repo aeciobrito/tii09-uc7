@@ -1,5 +1,7 @@
-CREATE DATABASE IF NOT EXISTS venda;
-USE venda;
+drop DATABASE venda12;
+
+CREATE DATABASE IF NOT EXISTS venda12;
+USE venda12;
 
 CREATE TABLE IF NOT EXISTS produtos (
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -18,15 +20,19 @@ CREATE TABLE IF NOT EXISTS usuario (
     token VARCHAR(255) DEFAULT NULL
 );
 
+-- use venda12;
+
 CREATE TABLE IF NOT EXISTS fornecedores (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(150) NOT NULL,
-    cnpj VARCHAR(20) UNIQUE,
-    contato VARCHAR(100)
+id INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(150) NOT NULL,
+cnpj VARCHAR(20) UNIQUE,
+contato VARCHAR(100)
 );
 
 ALTER TABLE produtos
 ADD COLUMN fornecedor_id INT NULL,
-ADD CONSTRAINT fk_produto_fornecedor 
-	FOREIGN KEY (fornecedor_id) 
-	REFERENCES fornecedores(id) ON DELETE SET NULL;
+ADD CONSTRAINT fk_produto_fornecedor
+    FOREIGN KEY (fornecedor_id) REFERENCES fornecedores(id)
+    ON DELETE SET NULL;
+
+

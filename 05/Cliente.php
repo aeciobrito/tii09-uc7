@@ -1,33 +1,106 @@
 <?php
 
+/*
+- Cliente
+Propriedades: nome, veiculo, telefone (todos private string)
+Construtor que recebe todas as propreidades
+Sobrescreva __toString() para visualizarmos os dados
+Crie um get para o "nome" e um set para o "telefone"
+*/
+
 class Cliente {
     private string $nome;
     private string $veiculo;
     private string $telefone;
-
-    public function __construct(string $nome, string $veiculo, string $telefone)
-    {      
+        
+    public function __construct(string $nome, string $veiculo, string $telefone) {
         $this->nome = $nome;
         $this->veiculo = $veiculo;
         $this->telefone = $telefone;
     }
 
-    public function setTelefone(string $novoNumero): void {
-        if(strlen($novoNumero) == 11) {
-            $this->telefone = $novoNumero;
-        } else {
-            echo "Telefone inválido <br>";
-        }        
+    // add Método para definir todos os atributos de uma vez
+    public function setDados(string $nome, string $veiculo, string $telefone): void {
+        $this->nome = $nome;
+        $this->veiculo = $veiculo;
+        $this->telefone = $telefone;
     }
 
-    public function __toString()
-    {
-        return "$this->nome, $this->veiculo, $this->telefone <br>";
+    public function getNome(): string {
+        return $this->nome;
     }
+
+    public function getVeiculo(): string {
+        return $this->veiculo;
+    }
+
+    public function getTelefone(): string {
+        return $this->telefone;
+    }
+
+    public function setNome(string $nome): void {
+        if(strlen($nome) > 2) {
+            $this->nome = $nome;
+        } else {
+            throw(new Error("Invalid Name"));
+        }
+    }
+
+    public function setVeiculo (string $veiculo) : void {
+        if(strlen($veiculo) > 2) {
+            $this->veiculo = $veiculo;
+        } else {
+            throw(new Error("Invalid Veículo"));
+        }
+    }
+
+    public function setTelefone(string $telefone) : void {
+        if(strlen($telefone) >= 8) {
+            $this->telefone = $telefone;
+        } else {
+            throw(new Error("Invalid Phone"));
+        }
+    }
+
+    public function __toString() {
+        return "<br>"
+            . "Nome: $this->nome, "
+            . "Veículo: $this->veiculo, "
+            . "Telefone: $this->telefone <br>";
+    }
+    
 }
 
-$cliente = new Cliente("Hugo", "Monza", "9911553345");
-echo($cliente);
 
-$cliente->setTelefone("11955778899");
-echo($cliente);
+$Teste = new Cliente("João", "Fusca", "123456789");
+print_r($Teste . "<br>");
+// echo "<br>";
+echo ($Teste->getNome() . "<br>");
+echo ($Teste->getVeiculo() . "<br>");
+echo ($Teste->getTelefone() . "<br>");
+
+echo "<br>";
+
+$Teste->setNome("Maria");
+echo ($Teste->getNome() . "<br>");
+
+$Teste->setVeiculo("Monza");
+echo ($Teste->getVeiculo() . "<br>");
+
+$Teste->setTelefone("40028922");
+echo ($Teste->getTelefone() . "<br>");
+
+echo "<br>";
+
+print_r($Teste . "<br>");
+
+// Agora, chamar setDados() para modificar tudo de uma vez só:
+
+$Teste02 = new Cliente("João", "Fusca", "123456789");
+print_r($Teste02 . "<br>");
+$Teste02->setDados("Maria", "Monza", "40028922"); // Definindo todos os valores
+echo ($Teste02->getNome() . "<br>");
+echo ($Teste02->getVeiculo() . "<br>");
+echo ($Teste02->getTelefone() . "<br>");
+
+

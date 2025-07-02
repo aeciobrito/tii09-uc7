@@ -1,8 +1,8 @@
 <?php
 
-require 'PizzaDAO.php';
+require 'Database.php';
 
-$bd = new PizzaDAO();
+$bd = new Database();
 $pizzas = $bd->getAll();
 
 ?>
@@ -28,7 +28,5 @@ $pizzas = $bd->getAll();
             </tr>
         <?php endforeach; ?>
     </table>
-    <br>
-    <a href="pizza_form.php">Cadastrar Nova</a>
 </body>
 </html>

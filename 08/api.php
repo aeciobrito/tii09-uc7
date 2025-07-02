@@ -1,5 +1,22 @@
 <?php
+
+// echo json_encode('Olá mundo');
+
 header('Content-Type: application/json');
+
+// $data = [
+//     'nome' => 'Minoru',
+//     'idade' => 25,
+//     'cidade' => 'São Paulo'
+// ];
+
+// echo json_encode($data, JSON_PRETTY_PRINT);
+
+// $data1 = [
+//     'Hi'
+// ];
+
+// echo json_encode($data1, JSON_PRETTY_PRINT);
 
 // Simulação de Dados
 $pessoas = [
@@ -7,6 +24,7 @@ $pessoas = [
     ['id' => 2, 'nome' => 'Maria'],
     ['id' => 3, 'nome' => 'José'],
 ];
+
 
 $rota = $_GET['rota'] ?? '';
 
@@ -19,60 +37,15 @@ if($metodo == 'GET' && $rota == 'ola') {
     exit;
 }
 
-if ($metodo == 'POST' && $rota == 'ola-nome') {
-    $nome = $_GET['nome'];
+if ($metodo == 'GET' && $rota == 'ola-nome') {
+    $nome = $_GET['nome'] ?? 'Visitante';
     echo json_encode(['mensagem' => "Olá, $nome"]);
     exit;
 }
 
-if ($metodo == 'GET' && $rota == 'pessoas') {
+if ($metodo = 'GET' && $rota = 'pessoas'){
     echo json_encode($pessoas);
     exit;
 }
 
-if($metodo == 'POST' && $rota == 'cadastrar-url')
-{
-    $id = $_GET['id'] ?? null;
-    $nome = $_GET['nome'] ?? null;
-
-    if(!$id || !$nome)
-    {
-        echo json_encode(['erro' => 'Informe o id e nome na URL']);
-        exit;
-    }
-
-    $pessoas[] = ['id' => (int)$id, 'nome' => $nome];
-
-    echo json_encode([
-        'mensagem' => 'Pessoa cadastrada com sucesso!',
-        'pessoas' => $pessoas
-    ]);
-    exit;
-}
-
-if($metodo == 'POST' && $rota == 'cadastrar-body')
-{
-    $input = json_decode(file_get_contents('php://input'), true);
-
-    $id = $input['id'] ?? null;
-    $nome = $input['nome'] ?? null;
-    $senha = $input['password'] ?? null;
-
-    if(!$id || !$nome)
-    {
-        echo json_encode(['erro' => 'Informe o id e nome na URL']);
-        exit;
-    }
-
-    $pessoas[] = ['id' => (int)$id, 'nome' => $nome, 'password' => $senha];
-
-    echo json_encode([
-        'mensagem' => 'Pessoa cadastrada com sucesso!',
-        'pessoas' => $pessoas
-    ]);
-    exit;
-}
-
-
-http_response_code(404);
-echo json_encode(['erro' => 'Rota não encontrada']);
+?>

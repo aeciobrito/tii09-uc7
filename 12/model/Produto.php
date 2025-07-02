@@ -31,6 +31,7 @@ class Produto implements JsonSerializable
     public function getDataDeCadastro(): string { return $this->dataDeCadastro; }
     public function getDataDeValidade(): ?string { return $this->dataDeValidade; }
     public function getFornecedor(): ?Fornecedor { return $this->fornecedor; }
+    
 
     public function jsonSerialize(): array
     {

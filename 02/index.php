@@ -1,29 +1,59 @@
 <?php
 
 $a = 10;
-$b = 5;
+$b= 5;
 
-echo "Soma: " . ($a + $b) . "<br>";
-echo "$a Maior que $b ?" . ($a > $b ? "Sim" : "Não") . "<br>";
+echo ($a + $b) . "<br>";
 
-$idade = 57;
+echo "Soma: " . ($a + $b) ."<br>";
 
-if($idade >= 18) {
-    echo "Maior de idade, $idade anos!<br>";
-} else {
-    echo "Menor de idade, $idade anos!<br>";
+echo "Outra linha" . "<br>";
+
+echo ($a > $b ? "SIM" : "NÃO") . "<br>";
+
+echo ($a < $b ? "SIM" : "NÃO") . "<br>";
+
+echo ($a = $b ? "SIM" : "NÃO") . "<br>";
+
+echo ($a == $b ? "SIM" : "NÃO") . "<br>";
+
+function classificarIdade($idade) {
+    if ($idade <= 17) {
+        return "Menor de idade". "<br>";
+    } else if ($idade >= 18 && $idade <= 60) {
+        return "Maior de idade". "<br>";
+    } else {
+        return "Idoso". "<br>";
+    }
 }
 
-// SWITCH CASE
-$dia = "quinta";
+// Exemplo de uso
+$idade = 17;
+echo classificarIdade($idade);
 
-switch($dia) {
-    case "segunda":
-        echo "Inicio da semana";
-        break;
-    case "sexta":
-        echo "Último dia útil";
-        break;
-    default:
-        echo "Dia comum";
+
+function diasDaSemana($dia) {
+    $dia = "segunda";
+
+    switch($dia) {
+        case "segunda":
+            echo "Hoje é segunda-feira". "<br>";
+            break;
+        case "sexta": 
+            echo "Hoje é sexta-feira". "<br>";
+            break;
+    }
 }
+
+// Exemplo de uso
+$dia = "segunda";
+echo diasDaSemana($dia);
+
+
+
+
+
+
+
+
+?>

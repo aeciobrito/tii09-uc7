@@ -1,0 +1,358 @@
+/* ===================== RESET E BASE ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ===================== CABEÇALHOS ===================== */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #34495e;
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* ===================== NAVEGAÇÃO ===================== */
+nav {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 10px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ===================== BOTÕES ===================== */
+button,
+input[type="submit"],
+a.botao,
+/* a[href*="criar"], */
+a[href*="cadastrar"],
+a[href*="index.php"],
+a[href*="voltar"] {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+    margin: 10px 0;
+}
+
+button,
+input[type="submit"] {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #229954, #27ae60);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+}
+
+a[href*="criar"],
+a[href*="cadastrar"] {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+}
+
+a[href*="criar"]:hover,
+a[href*="cadastrar"]:hover {
+    background: linear-gradient(135deg, #2980b9, #1f618d);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    transform: translateY(-2px);
+}
+
+
+a[href*="voltar"] {
+    background: #2C86C2;
+    color: white;
+}
+
+a[href*="index.php"] {
+    background: #2C86C2;
+    color: white;
+}
+
+a[href*="index.php"]:hover,
+a[href*="voltar"]:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+/* ===================== FORMULÁRIOS ===================== */
+form {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    transform: translateY(-2px);
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #3498db;
+}
+
+/* ===================== TABELAS ===================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+tr:hover {
+    background: #f8f9fa;
+    transition: 0.3s ease;
+}
+
+/* Ações na tabela */
+table td a {
+    padding: 6px 12px;
+    margin: 2px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+table td a[href*="ver"] {
+    background: #17a2b8;
+    color: white;
+}
+
+table td a[href*="editar"],
+table td a[href*="criar"] {
+    background: #ffc107;
+    color: #212529;
+}
+
+table td a[href*="excluir"] {
+    background: #dc3545;
+    color: white;
+}
+
+table td a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================== OUTROS ELEMENTOS ===================== */
+ul {
+    list-style: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+ul li strong {
+    color: #2c3e50;
+    margin-right: 10px;
+}
+
+/* ===================== MENSAGENS E TEXTO ===================== */
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+p[style*="color:red"] {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 10px 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+/* ===================== ACESSIBILIDADE E ANIMAÇÕES ===================== */
+*:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================== RESPONSIVIDADE ===================== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px 8px;
+    }
+
+    button, input[type="submit"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    table td a {
+        display: block;
+        margin: 3px 0;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}

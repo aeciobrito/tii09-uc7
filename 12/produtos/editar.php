@@ -1,57 +1,139 @@
 <?php
-require_once __DIR__ . '/../core/authService.php';
-requireLogin();
-require_once __DIR__ . '/../dao/ProdutoDAO.php';
-require_once __DIR__ . '/../dao/FornecedorDAO.php';
+require_once __DIR__ . '/../model/Produto.php';
+require_once __DIR__ . '/../model/Fornecedor.php';
+require_once __DIR__ . '/../core/Database.php';
 
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-$dao = new ProdutoDAO();
-$produto = $dao->getById($id);
-if (!$produto) exit("Produto não encontrado");
+class ProdutoDAO
+{
+    private PDO $db;
 
-$fornecedorDao = new FornecedorDAO();
-$fornecedores = $fornecedorDao->getAll();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $fornecedorId = filter_input(INPUT_POST, 'fornecedor_id', FILTER_VALIDATE_INT);
-    $fornecedor = $fornecedorId? $fornecedorDao->getById($fornecedorId) : null;
-
-    $produto = new Produto(
-        $id,
-        $_POST['nome'],
-        (float) $_POST['preco'],
-        isset($_POST['ativo']),
-        $produto->getDataDeCadastro(),
-        $_POST['dataDeValidade'] ?: null,
-        $fornecedor
-    );
-    if ($dao->update($produto)) {
-        header('Location: listar.php');
-        exit();
+    public function __construct()
+    {
+        $this->db = Database::getInstance();
     }
-    $erro = "Erro ao atualizar.";
+
+    public function getAll(): array
+    {
+        $stmt = $this->db->query(
+            "SELECT p.*, 
+            f.id AS fornecedor_id,
+            f.nome AS fornecedor_nome,
+            f.cnpj AS fornecedor_cnpj,
+            f.contato AS fornecedor_contato
+            FROM produtos p 
+            LEFT JOIN fornecedores f
+            ON p.fornecedor_id = f.id"
+        );
+
+        $produtosData = $stmt->fetchAll();
+
+        $produtos = [];
+        foreach ($produtosData as $data) {
+            $fornecedor = null;
+            if(isset($data['fornecedor_id']))
+            {
+                $fornecedor = new Fornecedor(
+                    $data['fornecedor_id'],
+                    $data['fornecedor_nome'],
+                    $data['fornecedor_cnpj'],
+                    $data['fornecedor_contato']
+                );
+            }
+
+            $produtos[] = new Produto(
+                $data['id'],
+                $data['nome'],
+                (float)$data['preco'],
+                (bool)$data['ativo'],
+                $data['dataDeCadastro'],
+                $data['dataDeValidade'], // Pode ser null 
+                $fornecedor
+            );
+        }
+        return $produtos;
+    }
+
+    public function getById(int $id): ?Produto
+    {
+        $stmt = $this->db->prepare(
+            "SELECT p.*, 
+            f.id AS fornecedor_id,
+            f.nome AS fornecedor_nome,
+            f.cnpj AS fornecedor_cnpj,
+            f.contato AS fornecedor_contato
+            FROM produtos p 
+            LEFT JOIN fornecedores f
+            ON p.fornecedor_id = f.id WHERE p.id = :id");
+        // Para getById, bindParam ainda é uma boa prática para clareza e segurança com o tipo.
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $data = $stmt->fetch();
+        if ($data) {
+            $fornecedor = null;
+            if(isset($data['fornecedor_id']))
+            {
+                $fornecedor = new Fornecedor(
+                    $data['fornecedor_id'],
+                    $data['fornecedor_nome'],
+                    $data['fornecedor_cnpj'],
+                    $data['fornecedor_contato']
+                );
+            }
+
+            return new Produto(
+                $data['id'],
+                $data['nome'],
+                (float)$data['preco'],
+                (bool)$data['ativo'],
+                $data['dataDeCadastro'],
+                $data['dataDeValidade'],
+                $fornecedor
+            );
+        }
+        return null;
+    }
+
+    public function create(Produto $produto): bool
+    {
+        $sql = "INSERT INTO produtos (nome, preco, ativo, dataDeCadastro, dataDeValidade) 
+                VALUES (:nome, :preco, :ativo, :dataDeCadastro, :dataDeValidade)";
+        $stmt = $this->db->prepare($sql);
+
+        return $stmt->execute([
+            ':nome' => $produto->getNome(),
+            ':preco' => $produto->getPreco(),
+            ':ativo' => $produto->getAtivo() ? 1 : 0,
+            ':dataDeCadastro' => $produto->getDataDeCadastro(),
+            ':dataDeValidade' => $produto->getDataDeValidade() // Pode ser null
+        ]);
+    }
+
+    public function update(Produto $produto): bool
+    {
+        $sql = "UPDATE produtos 
+                SET nome = :nome, preco = :preco, ativo = :ativo, 
+                    dataDeCadastro = :dataDeCadastro, dataDeValidade = :dataDeValidade, 
+                    fornecedor_id = :fornecedor_id
+                WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+
+        $fornecedorId = $produto->getFornecedor() ? $produto->getFornecedor()->getId() : null;
+
+        return $stmt->execute([
+            ':id' => $produto->getId(),
+            ':nome' => $produto->getNome(),
+            ':preco' => $produto->getPreco(),
+            ':ativo' => $produto->getAtivo() ? 1 : 0,
+            ':dataDeCadastro' => $produto->getDataDeCadastro(),
+            ':dataDeValidade' => $produto->getDataDeValidade(),
+            ':fornecedor_id' => $fornecedorId
+        ]);
+    }
+
+    public function delete(int $id): bool
+    {
+        $stmt = $this->db->prepare("DELETE FROM produtos WHERE id = :id");
+        // $stmt->bindParam(':id', $id, PDO::PARAM_INT); // Alternativa
+        return $stmt->execute([':id' => $id]);
+    }
 }
-?>
-<h1>Editar Produto</h1>
-<form method="POST">
-    Nome: <input type="text" name="nome" value="<?= $produto->getNome() ?>"><br>
-    Preço: <input type="number" name="preco" step="0.01" value="<?= $produto->getPreco() ?>"><br>
-
-    Fornecedor:
-    <select name="fornecedor_id">
-        <option value="">-- Sem Fornecedor --</option>
-
-        <?php foreach($fornecedores as $f): ?>
-            <?php
-            $selected = ($produto->getFornecedor() && $produto->getFornecedor()->getId() == $f->getId()) ? 'selected' : '';
-            ?>
-            <option value="<?= $f->getId() ?>" <?= $selected ?>>
-                <?= $f->getNome() ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <br>
-    Ativo: <input type="checkbox" name="ativo" <?= $produto->getAtivo() ? 'checked' : '' ?>><br>
-    Validade: <input type="date" name="dataDeValidade" value="<?= $produto->getDataDeValidade() ?>"><br>
-    <button type="submit">Atualizar</button>
-</form>

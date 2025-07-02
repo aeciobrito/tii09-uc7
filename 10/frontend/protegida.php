@@ -1,6 +1,8 @@
 <?php
 session_start();
+require_once '../UsuarioDAO.php';
 
+//  checa se a sessão está ativa se não sai 
 if(!isset($_SESSION['token']))
 {
     header('Location: index.php');
@@ -8,7 +10,6 @@ if(!isset($_SESSION['token']))
 }
 
 ?>
-
 
 <H1>Protegida!</H1>
 

@@ -4,7 +4,7 @@ class Database
     public static function getInstance()
     {
         $db_host = "localhost";
-        $db_name = "venda"; // Certifique-se que este banco de dados existe
+        $db_name = "venda12"; // Certifique-se que este banco de dados existe
         $db_user = "root";
         $db_pass = ""; // Sua senha do MySQL
 

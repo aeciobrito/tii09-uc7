@@ -18,15 +18,14 @@ class Produto {
     }
 
     public function setNome(string $nome) {
-        if(strlen($nome) > 2) {
+        if(strlen($nome) >= 2) {
             $this->nome = $nome;
         } else {
             throw(new Error("Invalid Name"));
         }
     }
 
-    public function __toString()
-    {
+    public function __toString() {
         return "Nome: $this->nome, Preço: $this->preco <br>";
     }
 }
@@ -39,9 +38,9 @@ echo ($p1->getNome());
 echo "<br>";
 echo ($p1->setNome("Abóbora"));
 echo "<br>";
-echo ($p1->getNome() . " - " . $p1->getPreco());
+echo ($p1->getNome() . " - " .$p1->getPreco());
 echo "<br>";
-echo ($p1);
+echo($p1);
 
 # Prodcedural
 /*
