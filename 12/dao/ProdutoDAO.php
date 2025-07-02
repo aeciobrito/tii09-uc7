@@ -95,16 +95,19 @@ class ProdutoDAO
 
     public function create(Produto $produto): bool
     {
-        $sql = "INSERT INTO produtos (nome, preco, ativo, dataDeCadastro, dataDeValidade) 
-                VALUES (:nome, :preco, :ativo, :dataDeCadastro, :dataDeValidade)";
+        $sql = "INSERT INTO produtos (nome, preco, ativo, dataDeCadastro, dataDeValidade, fornecedor_id) 
+                VALUES (:nome, :preco, :ativo, :dataDeCadastro, :dataDeValidade, :fornecedor_id)";
         $stmt = $this->db->prepare($sql);
+
+        $fornecedorId = $produto->getFornecedor() ? $produto->getFornecedor()->getId() : null;
 
         return $stmt->execute([
             ':nome' => $produto->getNome(),
             ':preco' => $produto->getPreco(),
             ':ativo' => $produto->getAtivo() ? 1 : 0,
             ':dataDeCadastro' => $produto->getDataDeCadastro(),
-            ':dataDeValidade' => $produto->getDataDeValidade() // Pode ser null
+            ':dataDeValidade' => $produto->getDataDeValidade(),
+            ':fornecedor_id' => $fornecedorId
         ]);
     }
 
