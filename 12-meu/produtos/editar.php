@@ -95,7 +95,7 @@ class ProdutoDAO
 
     public function create(Produto $produto): bool
     {
-        $sql = "INSERT INTO produtos (nome, preco, ativo, dataDeCadastro, dataDeValidade, forcecedor_id) 
+        $sql = "INSERT INTO produtos (nome, preco, ativo, dataDeCadastro, dataDeValidade) 
                 VALUES (:nome, :preco, :ativo, :dataDeCadastro, :dataDeValidade)";
         $stmt = $this->db->prepare($sql);
 
